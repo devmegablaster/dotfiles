@@ -16,6 +16,10 @@ keymap.set('n', '<C-a>', 'gg<S-v>G')
 -- Save with root permission (not working for now)
 --vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
 
+-- Floaterm keybindings
+keymap.set('n', 'gg',
+  '<cmd> :FloatermNew --height=0.8 --width=0.6 --wintype=float --name=LazyGit --position=center lg<CR>')
+
 -- Telescope Commands
 keymap.set('n', '<Space>t', '<cmd> Telescope find_files <CR>')
 keymap.set('n', '<Space>f', '<cmd> Telescope file_browser <CR>')
