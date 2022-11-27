@@ -28,6 +28,9 @@ vim.opt.wrap = false -- No Wrap lines
 vim.opt.backspace = { 'start', 'eol', 'indent' }
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
+vim.opt.showmode = false -- Don't show -- INSERT -- etc
+vim.opt.ruler = false -- Don't show the ruler
+vim.opt.fillchars = { eob = ' ' } -- No ~ at End of Buffer
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
