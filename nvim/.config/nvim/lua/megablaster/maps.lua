@@ -18,14 +18,18 @@ keymap.set('n', '<C-a>', 'gg<S-v>G')
 
 -- Floaterm keybindings
 keymap.set('n', 'gg',
-  '<cmd> :FloatermNew --height=0.8 --width=0.6 --wintype=float --name=LazyGit --position=center lg<CR>')
+  '<cmd> :FloatermNew --height=0.9 --width=0.9 --wintype=float --name=LazyGit --position=center lg<CR>')
+keymap.set('n', 'tn',
+  '<cmd> :FloatermNew --height=0.8 --width=0.8 --wintype=float --name=Notes --position=center $HOME/bin/notes.sh<CR>')
+keymap.set('n', 'tv',
+  '<cmd> :FloatermNew --height=0.8 --width=0.8 --wintype=float --name=ViewNotes --position=center glow $HOME/notes<CR>')
 
 -- Telescope Commands
 keymap.set('n', 'ff', '<cmd> Telescope file_browser <CR>')
 keymap.set('n', '<Space>f', '<cmd> Telescope find_files <CR>')
 
 -- New tab
-keymap.set('n', 'te', '<cmd> tabedit <CR>')
+keymap.set('n', 'tt', '<cmd> tabedit <CR>')
 -- Split window
 keymap.set('n', 'ss', ':split<Return><C-w>w')
 keymap.set('n', 'sv', ':vsplit<Return><C-w>w')
