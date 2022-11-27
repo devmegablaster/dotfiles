@@ -85,9 +85,9 @@ local is_mac = has "macunix"
 local is_win = has "win32"
 
 if is_mac then
-  require('craftzdog.macos')
+  require('megablaster.macos')
   require("nvim-tree").setup(options)
 end
 if is_win then
-  require('craftzdog.windows')
+  require('megablaster.windows')
 end
