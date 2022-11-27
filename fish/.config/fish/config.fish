@@ -40,4 +40,4 @@ alias g git
 starship init fish | source
 
 # Start Up Actions
-neofetch
+# neofetch
