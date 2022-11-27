@@ -27,6 +27,14 @@ function github
     open "https://www.githubcom/$argv"
 end
 
+function note
+    sh ~/bin/notes.sh
+end
+
+function notes
+    glow ~/notes
+end
+
 # Aliases
 alias lg "lazygit"
 alias vim "nvim"
