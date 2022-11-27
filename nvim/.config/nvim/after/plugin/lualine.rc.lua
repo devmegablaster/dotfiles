@@ -11,7 +11,7 @@ lualine.setup {
     theme = 'dracula',
     section_separators = { left = '', right = '' },
     component_separators = { left = '', right = '' },
-    disabled_filetypes = {}
+    disabled_filetypes = { "alpha", "NVimTree" }
   },
   sections = {
     lualine_a = { 'mode' },
@@ -43,5 +43,5 @@ lualine.setup {
     lualine_z = {}
   },
   tabline = {},
-  extensions = { 'fugitive' }
+  extensions = { 'nvim-tree' }
 }
