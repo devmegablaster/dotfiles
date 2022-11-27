@@ -21,11 +21,11 @@ keymap.set('n', 'gg',
   '<cmd> :FloatermNew --height=0.8 --width=0.6 --wintype=float --name=LazyGit --position=center lg<CR>')
 
 -- Telescope Commands
-keymap.set('n', '<Space>t', '<cmd> Telescope find_files <CR>')
-keymap.set('n', '<Space>f', '<cmd> Telescope file_browser <CR>')
+keymap.set('n', 'ff', '<cmd> Telescope file_browser <CR>')
+keymap.set('n', '<Space>f', '<cmd> Telescope find_files <CR>')
 
 -- New tab
-keymap.set('n', 'te', ':tabedit')
+keymap.set('n', 'te', '<cmd> tabedit <CR>')
 -- Split window
 keymap.set('n', 'ss', ':split<Return><C-w>w')
 keymap.set('n', 'sv', ':vsplit<Return><C-w>w')
