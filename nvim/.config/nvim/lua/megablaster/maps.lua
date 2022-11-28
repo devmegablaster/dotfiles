@@ -27,6 +27,7 @@ keymap.set('n', 'tv',
 -- Telescope Commands
 keymap.set('n', 'ff', '<cmd> Telescope file_browser <CR>')
 keymap.set('n', '<Space>f', '<cmd> Telescope find_files <CR>')
+keymap.set('n', '<Space>r', '<cmd> Telescope buffers <CR>')
 
 -- New tab
 keymap.set('n', 'tt', '<cmd> tabedit <CR>')
