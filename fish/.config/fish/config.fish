@@ -36,7 +36,7 @@ function notes
 end
 
 # Aliases
-alias gg "lazygit"
+alias gh "lazygit"
 alias vim "nvim"
 alias ls "ls -p -G"
 alias la "ls -A"
