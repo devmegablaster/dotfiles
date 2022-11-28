@@ -17,8 +17,8 @@ keymap.set('n', '<C-a>', 'gg<S-v>G')
 --vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
 
 -- Floaterm Mappings
-keymap.set('n', 'gg',
-  '<cmd> :FloatermNew --height=0.9 --width=0.9 --wintype=float --name=LazyGit --position=center gg<CR>')
+keymap.set('n', 'gh',
+  '<cmd> :FloatermNew --height=0.9 --width=0.9 --wintype=float --name=LazyGit --position=center gh<CR>')
 keymap.set('n', 'tn',
   '<cmd> :FloatermNew --height=0.8 --width=0.8 --wintype=float --name=Notes --position=center $HOME/bin/notes.sh<CR>')
 keymap.set('n', 'tv',
