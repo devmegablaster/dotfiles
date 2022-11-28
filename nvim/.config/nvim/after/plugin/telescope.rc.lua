@@ -16,11 +16,11 @@ telescope.setup {
         ["q"] = actions.close
       },
     },
+    file_ignore_patterns = { "node_modules/*", "vendor/*" },
   },
   extensions = {
     file_browser = {
       theme = "dropdown",
-      file_ignore_patterns = { "node_modules/*", "vendor/*" },
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
       mappings = {
