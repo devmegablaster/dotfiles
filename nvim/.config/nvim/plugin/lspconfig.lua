@@ -121,9 +121,12 @@ nvim_lsp.gopls.setup {
   capabilities = capabilities
 }
 
+local cppCapabilities = vim.lsp.protocol.make_client_capabilities()
+cppCapabilities.offsetEncoding = { "utf-16" }
+
 nvim_lsp.clangd.setup {
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = cppCapabilities
 }
 
 nvim_lsp.astro.setup {
