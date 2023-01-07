@@ -31,18 +31,22 @@ function note
     sh ~/bin/notes.sh
 end
 
+function cht
+  sh ~/bin/cht.sh
+end
+
 function notes
     glow ~/notes
 end
 
 # Aliases
-alias gh "lazygit"
 alias vim "nvim"
 alias ls "ls -p -G"
 alias la "ls -A"
 alias ll "ls -l"
 alias lla "ll -A"
 alias g git
+alias lg "lazygit"
 
 # Starship prompt
 starship init fish | source
