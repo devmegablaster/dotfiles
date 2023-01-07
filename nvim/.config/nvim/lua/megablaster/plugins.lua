@@ -9,11 +9,11 @@ packer.startup(function(use)
   -- Packer
   use 'wbthomason/packer.nvim'
 
-  -- NeoSolarized
-  use {
-    'svrana/neosolarized.nvim',
-    requires = { 'tjdevries/colorbuddy.nvim' }
-  }
+  -- Onedark theme
+  use 'navarasu/onedark.nvim'
+
+  -- Tokyonight theme
+  use 'folke/tokyonight.nvim'
 
   -- Lualine
   use 'nvim-lualine/lualine.nvim'

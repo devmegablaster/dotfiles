@@ -18,11 +18,13 @@ keymap.set('n', '<C-a>', 'gg<S-v>G')
 
 -- Floaterm Mappings
 keymap.set('n', 'gh',
-  '<cmd> :FloatermNew --height=0.9 --width=0.9 --wintype=float --name=LazyGit --position=center gh<CR>')
+  '<cmd> :FloatermNew --height=0.9 --width=0.9 --wintype=float --name=LazyGit --position=center lg<CR>')
 keymap.set('n', 'tn',
   '<cmd> :FloatermNew --height=0.8 --width=0.8 --wintype=float --name=Notes --position=center $HOME/bin/notes.sh<CR>')
 keymap.set('n', 'tv',
   '<cmd> :FloatermNew --height=0.8 --width=0.8 --wintype=float --name=ViewNotes --position=center glow $HOME/notes<CR>')
+keymap.set('n', '<Space>hh',
+  '<cmd> :FloatermNew --height=0.8 --width=0.8 --wintype=float --name=Htop --position=center cht<CR>')
 
 -- Telescope Commands
 keymap.set('n', 'ff', '<cmd> Telescope file_browser <CR>')

@@ -2,13 +2,13 @@ local status, lualine = pcall(require, "lualine")
 if (not status) then return end
 
 local function MEGA()
-  return [[MEGABLASTER]]
+  return [[VsCode++]]
 end
 
 lualine.setup {
   options = {
     icons_enabled = true,
-    theme = 'dracula',
+    theme = 'onedark',
     section_separators = { left = '', right = '' },
     component_separators = { left = '', right = '' },
     disabled_filetypes = { "alpha", "NVimTree" }
