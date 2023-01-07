@@ -38,11 +38,11 @@ yabai -m config mouse_drop_action            swap
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  06
-yabai -m config bottom_padding               06
-yabai -m config left_padding                 06
-yabai -m config right_padding                06
-yabai -m config window_gap                   04
+yabai -m config top_padding                  05
+yabai -m config bottom_padding               05
+yabai -m config left_padding                 05
+yabai -m config right_padding                05
+yabai -m config window_gap                   05
 
 yabai -m rule --add app="System Preferences" sticky=on layer=above manage=offdd
 yabai -m rule --add app="RayCast" sticky=on layer=above manage=offdd
