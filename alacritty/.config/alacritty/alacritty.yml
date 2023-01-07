@@ -5,7 +5,7 @@ window:
   class:
     instance: Alacritty
     general: Alacritty
-  opacity: 0.9
+  opacity: 0.82
   decorations: buttonless
 
 cursor:
@@ -18,21 +18,19 @@ scrolling:
   history: 10000
   multiplier: 3
 
+env:
+  TERM: xterm-256color
 
 font:
   normal:
-    family: Hack Nerd Font
-    style:  Regular
+    family: Hack Nerd font
   bold:
-    family: Hack Nerd Font
-    style:  Bold
+    family: Monocraft
   italic:
-    family: Hack Nerd Font
-    style:  RegularItalic
+    family: Monocraft
   bold_italic:
-    family: Hack Nerd Font
-    style: BoldItalic
-  size: 14.5
+    family: Monocraft
+  size: 15
 draw_bold_text_with_bright_colors: true
 
 colors:
@@ -161,7 +159,7 @@ schemes:
   MonokaiPro: &MonokaiPro
     # Default colors
     primary:
-      background: '#111111'
+      background: '#121212'
       foreground: '#FCFCFA'
 
     # Normal colors
