@@ -1,4 +1,4 @@
-languages=`echo "golang lua python cpp c typescript nodejs reactjs" | tr ' ' '\n'`
+languages=`echo "golang lua python cpp c typescript nodejs reactjs r" | tr ' ' '\n'`
 
 selected=`printf "$languages\n" | fzf`
 read -p "query => " query
