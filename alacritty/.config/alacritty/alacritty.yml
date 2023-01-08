@@ -24,12 +24,6 @@ env:
 font:
   normal:
     family: Hack Nerd font
-  bold:
-    family: Monocraft
-  italic:
-    family: Monocraft
-  bold_italic:
-    family: Monocraft
   size: 15
 draw_bold_text_with_bright_colors: true
 
