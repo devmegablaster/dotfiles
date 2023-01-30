@@ -6,8 +6,13 @@ DATE=$(date +%Y-%m-%d)
 # Get the time
 TIME=$(date +%H:%M)
 
-# Get the file name
-FILE_NAME=$(date +%Y-%m-%d)
+# Get the file name from the first argument if it exists
+if [ -z "$1" ]
+then
+    FILE_NAME=$(date +%Y-%m-%d)
+else
+    FILE_NAME=$1
+fi
 
 # Get the file path
 # Change this to your notes directory

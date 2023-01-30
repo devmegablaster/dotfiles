@@ -27,10 +27,6 @@ function github
     open "https://www.githubcom/$argv"
 end
 
-function note
-    sh ~/bin/notes.sh
-end
-
 function cht
   sh ~/bin/cht.sh
 end
@@ -47,6 +43,8 @@ alias ll "ls -l"
 alias lla "ll -A"
 alias g git
 alias lg "lazygit"
+alias note "sh ~/bin/notes.sh"
+
 
 # Starship prompt
 starship init fish | source
