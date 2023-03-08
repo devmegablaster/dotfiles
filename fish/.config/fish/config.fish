@@ -31,8 +31,11 @@ function cht
   sh ~/bin/cht.sh
 end
 
-function notes
-    glow ~/notes
+function synk
+  nvm use 16
+  cp /Volumes/Kindle/documents/My\ Clippings.txt ~/kindle/kindle-to-notion/resources/
+  cd ~/kindle/kindle-to-notion/dist/
+  node main.js
 end
 
 # Aliases
@@ -44,6 +47,8 @@ alias lla "ll -A"
 alias g git
 alias lg "lazygit"
 alias note "sh ~/bin/notes.sh"
+alias notes "glow ~/notes"
+
 
 
 # Starship prompt
