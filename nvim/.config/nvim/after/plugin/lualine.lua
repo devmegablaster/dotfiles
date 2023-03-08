@@ -45,3 +45,4 @@ lualine.setup {
   tabline = {},
   extensions = { 'nvim-tree' }
 }
+
