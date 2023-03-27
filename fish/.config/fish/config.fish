@@ -49,13 +49,6 @@ alias lg "lazygit"
 alias note "sh ~/bin/notes.sh"
 alias notes "glow ~/notes"
 
-
-
-# Starship prompt
-
-# Start Up Actions
-# neofetch
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 if test -f /Users/ojastyagi/anaconda3/bin/conda
