@@ -1,6 +1,5 @@
 {
     "global": {
-        "ask_for_confirmation_before_quitting": true,
         "check_for_updates_on_startup": true,
         "show_in_menu_bar": true,
         "show_profile_name_in_menu_bar": false,
@@ -33,6 +32,16 @@
                     "simple_modifications": [
                         {
                             "from": {
+                                "key_code": "caps_lock"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "left_option"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
                                 "key_code": "left_option"
                             },
                             "to": [
@@ -48,16 +57,6 @@
                             "to": [
                                 {
                                     "key_code": "right_option"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
-                                "key_code": "caps_lock"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "left_option"
                                 }
                             ]
                         }

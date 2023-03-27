@@ -52,7 +52,6 @@ alias notes "glow ~/notes"
 
 
 # Starship prompt
-starship init fish | source
 
 # Start Up Actions
 # neofetch
