@@ -9,6 +9,10 @@ alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
 alt - l : yabai -m window --focus east
 
+# switch focus between desktops
+alt - s : yabai -m display --focus south
+alt - w : yabai -m display --focus north
+
 # swap window
 shift + alt - left : yabai -m window --swap west
 shift + alt - down : yabai -m window --swap south
