@@ -10,6 +10,8 @@ set -g theme_display_user yes
 set -g theme_hide_hostname no
 set -g theme_hostname always
 
+export EDITOR=nvim
+
 # Functions
 function g
     open "https://www.google.com/search?q=$argv"
@@ -48,6 +50,7 @@ alias g git
 alias lg "lazygit"
 alias note "sh ~/bin/notes.sh"
 alias notes "glow ~/notes"
+alias spt "spotify"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
