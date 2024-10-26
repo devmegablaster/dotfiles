@@ -21,6 +21,7 @@
           pkgs.tmux
           pkgs.mkalias
           pkgs.alacritty
+          pkgs.k9s
           pkgs.obsidian
           pkgs.spotify
         ];
