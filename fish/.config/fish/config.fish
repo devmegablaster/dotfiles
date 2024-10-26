@@ -10,6 +10,10 @@ set -g theme_display_user yes
 set -g theme_hide_hostname no
 set -g theme_hostname always
 
+# Golang
+set -x GOPATH $HOME/go
+set -x PATH $PATH $GOPATH/bin
+
 export EDITOR=nvim
 
 # Functions
@@ -40,6 +44,10 @@ function synk
   node main.js
 end
 
+function notes
+  glow $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/Notes
+end
+
 # Aliases
 alias vim "nvim"
 alias ls "ls -p -G"
@@ -48,10 +56,13 @@ alias ll "ls -l"
 alias lla "ll -A"
 alias g git
 alias lg "lazygit"
+alias cloud "sh ~/bin/cloud-notes.sh"
 alias note "sh ~/bin/notes.sh"
-alias notes "glow ~/notes"
+alias tmux-session "sh ~/bin/tmux-session.sh"
 alias spt "spotify"
 alias ports "lsof -i -P | grep -i 'listen'"
+alias g++ 'g++ -std=c++11'
+alias codelines 'git ls-files | xargs wc -l'
 
 function fish_user_key_bindings
   bind /co 'fzf (commandline -b)'
