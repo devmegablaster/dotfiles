@@ -15,12 +15,19 @@
   # plain files is through 'home.file'.
   home.file = {
     ".config/nvim".source = ~/dotfiles/nvim;
-    ".zshrc".source = ~/dotfiles/zshrc;
     ".config/nix-darwin".source = ~/dotfiles/nix-darwin;
     ".config/tmux".source = ~/dotfiles/tmux;
+    ".config/karabiner".source = ~/dotfiles/karabiner;
+    ".config/alacritty".source = ~/dotfiles/alacritty;
+    ".config/neofetch".source = ~/dotfiles/neofetch;
+    "bin".source = ~/dotfiles/bin;
+    ".skhdrc".source = ~/dotfiles/skhd/.skhdrc;
+    ".yabairc".source = ~/dotfiles/yabai/.yabairc;
+    ".zshrc".source = ~/dotfiles/zsh/.zshrc;
   };
 
   home.sessionVariables = {
+    EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.
