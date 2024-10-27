@@ -2,7 +2,7 @@ local status, lualine = pcall(require, "lualine")
 if (not status) then return end
 
 local function MEGA()
-  return [[VsCode++]]
+  return [[devmegablaster]]
 end
 
 lualine.setup {

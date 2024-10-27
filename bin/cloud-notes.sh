@@ -1,4 +1,4 @@
-# Shell Script to create/edit markdown notes
+#!/bin/bash
 
 # Get the date
 DATE=$(date +%Y-%m-%d)
@@ -15,8 +15,9 @@ else
 fi
 
 # Get the file path
-# Change this to your notes directory
-FILE_PATH="$HOME/notes/$FILE_NAME.md"
+# Change this to your iCloud Drive notes directory
+ICLOUD_DIR="$HOME/Library/Mobile Documents/com~apple~CloudDocs/notes"
+FILE_PATH="$ICLOUD_DIR/$FILE_NAME.md"
 
 # Create the file
 touch $FILE_PATH
@@ -24,14 +25,13 @@ touch $FILE_PATH
 # Open the file in nvim
 if [ -z "$1" ]
 then
-
   # If the file is empty, add the date
   if [ ! -s $FILE_PATH ]; then
     echo "# $DATE" >> $FILE_PATH
   fi
 
   nvim -c "normal Go" \
-    -c "normal Go## $(DATE +%H:%M)" \
+    -c "normal Go## $TIME" \
     -c "normal G2o" \
     -c "normal zz" \
     -c "startinsert" $FILE_PATH
@@ -39,3 +39,4 @@ else
   nvim -c "normal Go" \
     -c "startinsert" $FILE_PATH
 fi
+
