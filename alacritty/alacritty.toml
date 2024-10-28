@@ -1,0 +1,216 @@
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[[keyboard.bindings]]
+chars = "\u0002,"
+key = "Comma"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002s"
+key = "K"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00021"
+key = "Key1"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00022"
+key = "Key2"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00023"
+key = "Key3"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00024"
+key = "Key4"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00025"
+key = "Key5"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00026"
+key = "Key6"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00027"
+key = "Key7"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00028"
+key = "Key8"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00029"
+key = "Key9"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002L"
+key = "L"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002["
+key = "LBracket"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002p"
+key = "LBracket"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002%"
+key = "N"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002\""
+key = "N"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002d"
+key = "Q"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002n"
+key = "RBracket"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = """
+\u001B:w
+"""
+key = "S"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002c"
+key = "T"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002cc"
+key = "T"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002x"
+key = "W"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002z"
+key = "Z"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002G"
+key = "G"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002d"
+key = "P"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002$"
+key = "R"
+mods = "Command"
+
+[colors.bright]
+black = "#727072"
+blue = "#FC9867"
+cyan = "#78DCE8"
+green = "#A9DC76"
+magenta = "#AB9DF2"
+red = "#FF6188"
+white = "#FCFCFA"
+yellow = "#FFD866"
+
+[colors.normal]
+black = "#403E41"
+blue = "#FC9867"
+cyan = "#78DCE8"
+green = "#A9DC76"
+magenta = "#AB9DF2"
+red = "#FF6188"
+white = "#FCFCFA"
+yellow = "#FFD866"
+
+[colors.primary]
+background = "#121212"
+foreground = "#FCFCFA"
+
+[cursor.style]
+shape = "Beam"
+
+[cursor.vi_mode_style]
+shape = "Block"
+
+[env]
+TERM = "xterm-256color"
+ALACRITTY_DISABLE_WARNINGS = "1"
+
+[font]
+size = 15
+
+[font.normal]
+family = "Hack Nerd font"
+
+# [schemes.MonokaiPro.bright]
+# black = "#727072"
+# blue = "#FC9867"
+# cyan = "#78DCE8"
+# green = "#A9DC76"
+# magenta = "#AB9DF2"
+# red = "#FF6188"
+# white = "#FCFCFA"
+# yellow = "#FFD866"
+# 
+# [schemes.MonokaiPro.normal]
+# black = "#403E41"
+# blue = "#FC9867"
+# cyan = "#78DCE8"
+# green = "#A9DC76"
+# magenta = "#AB9DF2"
+# red = "#FF6188"
+# white = "#FCFCFA"
+# yellow = "#FFD866"
+# 
+# [schemes.MonokaiPro.primary]
+# background = "#121212"
+# foreground = "#FCFCFA"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[window]
+decorations = "buttonless"
+opacity = 0.82
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 7
+y = 7
+
+[keyboard]
