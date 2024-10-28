@@ -24,6 +24,7 @@
     ".skhdrc".source = ~/dotfiles/skhd/.skhdrc;
     ".yabairc".source = ~/dotfiles/yabai/.yabairc;
     ".zshrc".source = ~/dotfiles/zsh/.zshrc;
+    ".p10k.zsh".source = ~/dotfiles/zsh/.p10k.zsh;
   };
 
   home.sessionVariables = {
