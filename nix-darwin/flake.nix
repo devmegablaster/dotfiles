@@ -23,7 +23,10 @@
         [ pkgs.vim
           pkgs.neovim
           pkgs.tmux
+          pkgs.skhd
+          pkgs.yabai
           pkgs.mkalias
+          pkgs.ripgrep
           pkgs.alacritty
           pkgs.obsidian
           pkgs.spotify
@@ -86,6 +89,9 @@
 
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
+
+      services.skhd.enable = true;
+      services.yabai.enable = true;
 
       users.users.ojastyagi = {
         name = "ojastyagi";
