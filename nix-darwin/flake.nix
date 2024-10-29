@@ -9,7 +9,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager}:
@@ -37,6 +36,7 @@
           pkgs.spotify
 
           pkgs.go
+          pkgs.nodejs_22
         ];
 
       fonts.packages = 
@@ -121,14 +121,6 @@
       homebrew.brews = [
         "wakatime-cli"
       ];
-
-      # homebrew = {
-      #   enable = true;
-      #   casks = [
-      #     "karabiner-elements"
-      #   ];
-      #   onActivation.cleanup = "zap";
-      # };
     };
   in
   {
@@ -147,15 +139,6 @@
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
           }
-        # nix-homebrew.darwinModules.nix-homebrew
-        # {
-        #   nix-homebrew = {
-        #     enable = true;
-        #     enableRosetta = true;
-        #     user = "ojastyagi";
-        #     autoMigrate = true;
-        #   };
-        # }
       ];
     };
 
