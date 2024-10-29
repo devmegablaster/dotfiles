@@ -18,6 +18,37 @@
                 },
                 "rules": [
                     {
+                        "description": "Remap 'Cmd + Option + H' to perform 'Ctrl + B' followed by 'H'",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command",
+                                            "option"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "b",
+                                        "modifiers": [
+                                            "control"
+                                        ]
+                                    },
+                                    {
+                                        "key_code": "h"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Mac OSX: disable cmd + h to prevent minimising an application window",
                         "manipulators": [
                             {
