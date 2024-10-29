@@ -2,11 +2,6 @@
 draw_bold_text_with_bright_colors = true
 
 [[keyboard.bindings]]
-chars = "\u0002,"
-key = "Comma"
-mods = "Command"
-
-[[keyboard.bindings]]
 chars = "\u0002s"
 key = "K"
 mods = "Command"
@@ -62,16 +57,6 @@ key = "L"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002["
-key = "LBracket"
-mods = "Command"
-
-[[keyboard.bindings]]
-chars = "\u0002p"
-key = "LBracket"
-mods = "Command|Shift"
-
-[[keyboard.bindings]]
 chars = "\u0002%"
 key = "N"
 mods = "Command|Shift"
@@ -85,11 +70,6 @@ mods = "Command"
 chars = "\u0002d"
 key = "Q"
 mods = "Command"
-
-[[keyboard.bindings]]
-chars = "\u0002n"
-key = "RBracket"
-mods = "Command|Shift"
 
 [[keyboard.bindings]]
 chars = """
@@ -132,6 +112,31 @@ mods = "Command"
 chars = "\u0002$"
 key = "R"
 mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002%"
+key = "Comma"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002h"
+key = "h"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002l"
+key = "l"
+mods = "Command|Alt"
+
+[[keyboard.bindings]]
+chars = "\u0002j"
+key = "j"
+mods = "Command|Alt"
+
+[[keyboard.bindings]]
+chars = "\u0002k"
+key = "k"
+mods = "Command|Alt"
 
 [colors.bright]
 black = "#727072"

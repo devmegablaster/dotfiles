@@ -2,16 +2,17 @@
   description = "devmegablaster Darwin system flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager}:
   let
     configuration = { pkgs, config, ... }: {
 
@@ -23,13 +24,24 @@
         [ pkgs.vim
           pkgs.neovim
           pkgs.tmux
+          pkgs.karabiner-elements
           pkgs.skhd
           pkgs.yabai
+          pkgs.fzf
+          pkgs.gnupg
+          pkgs.lazygit
           pkgs.mkalias
           pkgs.ripgrep
           pkgs.alacritty
           pkgs.obsidian
           pkgs.spotify
+
+          pkgs.go
+        ];
+
+      fonts.packages = 
+        [
+          (pkgs.nerdfonts.override { fonts =  [ "JetBrainsMono" ]; })
         ];
 
       system.activationScripts.applications.text = let
@@ -57,10 +69,10 @@
       system.defaults = {
         dock.autohide = true;
         dock.persistent-apps = [
-        "${pkgs.alacritty}/Applications/Alacritty.app"
-        "${pkgs.obsidian}/Applications/Obsidian.app"
-        "/Applications/Arc.app"
-        "/System/Applications/Calendar.app"
+          "${pkgs.alacritty}/Applications/Alacritty.app"
+          "${pkgs.obsidian}/Applications/Obsidian.app"
+          "/Applications/Arc.app"
+          "/System/Applications/Calendar.app"
         ];
         finder.FXPreferredViewStyle = "clmv";
         NSGlobalDomain.AppleICUForce24HourTime = true;
@@ -68,6 +80,8 @@
         NSGlobalDomain.KeyRepeat = 2;
         loginwindow.LoginwindowText = "devmegablaster";
       };
+
+      system.startup.chime = false;
 
       # Auto upgrade nix package and the daemon service.
       services.nix-daemon.enable = true;
@@ -92,11 +106,29 @@
 
       services.skhd.enable = true;
       services.yabai.enable = true;
+      services.karabiner-elements.enable = true;
 
       users.users.ojastyagi = {
         name = "ojastyagi";
         home = "/Users/ojastyagi";
       };
+
+      homebrew.enable = true;
+
+      homebrew.casks = [
+      ];
+
+      homebrew.brews = [
+        "wakatime-cli"
+      ];
+
+      # homebrew = {
+      #   enable = true;
+      #   casks = [
+      #     "karabiner-elements"
+      #   ];
+      #   onActivation.cleanup = "zap";
+      # };
     };
   in
   {
@@ -115,6 +147,15 @@
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
           }
+        # nix-homebrew.darwinModules.nix-homebrew
+        # {
+        #   nix-homebrew = {
+        #     enable = true;
+        #     enableRosetta = true;
+        #     user = "ojastyagi";
+        #     autoMigrate = true;
+        #   };
+        # }
       ];
     };
 
