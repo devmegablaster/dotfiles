@@ -176,7 +176,7 @@ ALACRITTY_DISABLE_WARNINGS = "1"
 size = 15
 
 [font.normal]
-family = "Hack Nerd font"
+family = "JetBrainsMono Nerd Font"
 
 # [schemes.MonokaiPro.bright]
 # black = "#727072"

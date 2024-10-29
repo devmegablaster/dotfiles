@@ -37,12 +37,14 @@
 
           pkgs.go
           pkgs.nodejs_22
+
+          pkgs.docker
+          pkgs.gh
         ];
 
-      fonts.packages = 
-        [
-          (pkgs.nerdfonts.override { fonts =  [ "JetBrainsMono" ]; })
-        ];
+      fonts.packages = [
+        (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      ];
 
       system.activationScripts.applications.text = let
         env = pkgs.buildEnv {
@@ -67,6 +69,8 @@
       security.pam.enableSudoTouchIdAuth = true;
 
       system.defaults = {
+
+        # Dock
         dock.autohide = true;
         dock.persistent-apps = [
           "${pkgs.alacritty}/Applications/Alacritty.app"
@@ -74,10 +78,26 @@
           "/Applications/Arc.app"
           "/System/Applications/Calendar.app"
         ];
+        dock.tilesize = 60;
+        dock.largesize = 75;
+        dock.magnification = true;
+
+        # Finder
         finder.FXPreferredViewStyle = "clmv";
+        finder.AppleShowAllExtensions = true;
+        finder._FXShowPosixPathInTitle = true;
+        finder.AppleShowAllFiles = true;
+        finder.FXEnableExtensionChangeWarning = false;
+        finder.FXDefaultSearchScope = "SCcf";
+
         NSGlobalDomain.AppleICUForce24HourTime = true;
         NSGlobalDomain.AppleInterfaceStyle = "Dark";
         NSGlobalDomain.KeyRepeat = 2;
+
+        universalaccess.reduceMotion = true;
+
+        trackpad.Clicking = true;
+
         loginwindow.LoginwindowText = "devmegablaster";
       };
 
