@@ -2,7 +2,7 @@
   description = "devmegablaster Darwin system flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager = {
@@ -19,27 +19,29 @@
 
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
-      environment.systemPackages =
-        [ pkgs.vim
-          pkgs.neovim
-          pkgs.tmux
-          pkgs.karabiner-elements
-          pkgs.skhd
-          pkgs.yabai
-          pkgs.fzf
-          pkgs.gnupg
-          pkgs.lazygit
-          pkgs.mkalias
-          pkgs.ripgrep
-          pkgs.alacritty
-          pkgs.obsidian
-          pkgs.spotify
+      environment.systemPackages = with pkgs; [ 
+          vim
+          neovim
+          #TODO: Switch to unstable karabiner after latest release of unstable
+          # karabiner-elements
+          tmux
+          skhd
+          yabai
+          fzf
+          gnupg
+          lazygit
+          mkalias
+          ripgrep
+          alacritty
+          obsidian
+          spotify
 
-          pkgs.go
-          pkgs.nodejs_22
+          go
+          nodejs_22
+          cargo
 
-          pkgs.docker
-          pkgs.gh
+          docker
+          gh
         ];
 
       fonts.packages = [
@@ -126,7 +128,7 @@
 
       services.skhd.enable = true;
       services.yabai.enable = true;
-      services.karabiner-elements.enable = true;
+      # services.karabiner-elements.enable = true;
 
       users.users.ojastyagi = {
         name = "ojastyagi";
@@ -136,10 +138,13 @@
       homebrew.enable = true;
 
       homebrew.casks = [
+        #HACK: Remove this after unstable release
+        "karabiner-elements"
       ];
 
       homebrew.brews = [
         "wakatime-cli"
+        "cowsay"
       ];
     };
   in

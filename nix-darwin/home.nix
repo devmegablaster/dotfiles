@@ -5,7 +5,7 @@
   # manage.
   home.username = "ojastyagi";
   home.homeDirectory = "/Users/ojastyagi";
-
+  
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   # For packages that are not required system-wide
@@ -37,4 +37,7 @@
     "/run/current-system/sw/bin"
       "$HOME/.nix-profile/bin"
   ];
+
+  # TODO: Fix Later!
+  home.enableNixpkgsReleaseCheck = false;
 }
