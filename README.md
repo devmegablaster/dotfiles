@@ -1,29 +1,25 @@
-# MEGABLASTER Dotfiles
+# Dotfiles
 
-This repository contains MEGABLASTER's Dotfiles for Development Enviornment
+This repository contains my personal dotfiles.
 
-## Installation
+## Setup
 
-The Installation process will be updated later. You can clone the repo and use the dotfiles by [stowing](https://formulae.brew.sh/formula/stow) them
+You can clone the repo and use the dotfiles using [Nix](https://nixos.org/)
+
+1. Clone the repository
+
 ```bash
-brew install stow
+git clone https://github.com/devmegablaster/dotfiles ~/dotfiles
 ```
 
-## Usage
+2. Install Nix
 
-```stow nvim
-stow fish
-stow alacritty
-stow neofetch
-stow skhd
-stow tmux
-stow yabai
-stow zsh
+```bash
+sh <(curl -L https://nixos.org/nix/install)
 ```
 
-## Contributing
+3. Use nix-darwin to use the flake
 
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
+```bash
+darwin-rebuild switch --flake ~/dotfiles/nix-darwin#air --impure
+```
