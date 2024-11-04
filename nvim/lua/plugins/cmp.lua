@@ -2,27 +2,13 @@ local cmp = require("cmp")
 cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
+		-- TODO: Check this later
 		{ name = "luasnip" },
-		{ name = "neorg" },
 	},
 	mapping = {
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
 		["<S-k>"] = cmp.mapping.select_prev_item({ behavior = "select" }),
 		["<S-j>"] = cmp.mapping.select_next_item({ behavior = "select" }),
-		["<C-p>"] = cmp.mapping(function()
-			if cmp.visible() then
-				cmp.select_prev_item({ behavior = "insert" })
-			else
-				cmp.complete()
-			end
-		end),
-		["<C-n>"] = cmp.mapping(function()
-			if cmp.visible() then
-				cmp.select_next_item({ behavior = "insert" })
-			else
-				cmp.complete()
-			end
-		end),
 	},
 	snippet = {
 		expand = function(args)

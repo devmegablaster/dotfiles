@@ -3,7 +3,7 @@ require("telescope").setup({})
 -- Enable telescope fzf native, if installed
 pcall(require("telescope").load_extension, "fzf")
 
-vim.keymap.set("n", "<Leader>t", require("telescope.builtin").find_files, {})
+vim.keymap.set("n", "<leader>t", require("telescope.builtin").find_files, {})
 vim.keymap.set("n", "<leader>f", require("telescope.builtin").live_grep, {})
 
 -- See `:help telescope.builtin`
@@ -20,6 +20,6 @@ vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { de
 
 vim.keymap.set("n", "<leader>sb", require("telescope.builtin").buffers, { desc = "[ ] Find existing buffers" })
 vim.keymap.set("n", "<leader>sm", ":Telescope harpoon marks<CR>", { desc = "Harpoon [M]arks" })
-vim.keymap.set("n", "<Leader>sn", "<CMD>lua require('telescope').extensions.notify.notify()<CR>", silent)
+vim.keymap.set("n", "<leader>sn", "<CMD>lua require('telescope').extensions.notify.notify()<CR>", silent)
 
-vim.api.nvim_set_keymap("n", "st", ":TodoTelescope<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>st", ":TodoTelescope<CR>", { noremap = true })

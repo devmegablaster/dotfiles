@@ -10,8 +10,8 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 
 -- switch between buffers
-vim.api.nvim_set_keymap("n", "<Leader><TAB>", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader><S-TAB>", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>bp", ":bprev<CR>", { noremap = true, silent = true })
 
 vim.scriptencoding = "utf-8"
 vim.opt.encoding = "utf-8"

@@ -26,6 +26,7 @@ require("lazy").setup({
 	"rcarriga/nvim-notify",
 	"williamboman/mason.nvim",
 	"folke/twilight.nvim",
+	"folke/which-key.nvim",
 	{ "wakatime/vim-wakatime", lazy = false },
 	{
 		"MeanderingProgrammer/markdown.nvim",
@@ -37,6 +38,9 @@ require("lazy").setup({
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("todo-comments").setup()
+		end,
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -119,6 +123,7 @@ require("lazy").setup({
 				formatters_by_ft = {
 					go = { "gofmt" },
 					lua = { "stylua" },
+					markdown = { "prettier" },
 				},
 				format_on_save = {
 					lsp_fallback = true,
