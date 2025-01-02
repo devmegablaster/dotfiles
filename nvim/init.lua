@@ -12,6 +12,7 @@ require("plugins.cmp")
 require("plugins.cmp")
 require("plugins.notify")
 require("plugins.fidget")
+require("plugins.rendermd")
 -- vim.opt.fillchars = { eob = ' ' }
 
 -- local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
@@ -30,3 +31,4 @@ require("plugins.fidget")
 -- require("telescope").load_extension('harpoon')
 --
 -- require('mason').setup()
+--
