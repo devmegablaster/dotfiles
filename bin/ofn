@@ -1,0 +1,5 @@
+#!/bin/bash
+
+ICLOUD_DIR="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Vault"
+
+cd "$ICLOUD_DIR" && nvim -c "Telescope find_files"

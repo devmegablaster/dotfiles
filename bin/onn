@@ -1,0 +1,13 @@
+#!/bin/bash
+# Makes a new note in Obsidian with the given title
+
+ICLOUD_DIR="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Vault"
+
+if [ -z "$1" ]
+then
+    TITLE=""
+else
+    TITLE=$1
+fi
+
+nvim -c "ObsidianNew $TITLE"
