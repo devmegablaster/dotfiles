@@ -55,7 +55,7 @@ end
 require("mason").setup()
 
 -- NOTE: Install these servers
-local servers = { "clangd", "rust_analyzer", "pyright", "gopls", "templ" }
+local servers = { "clangd", "rust_analyzer", "pyright", "gopls", "templ", "ts_ls" }
 
 -- Ensure the servers above are installed
 require("mason-lspconfig").setup({
@@ -110,4 +110,33 @@ vim.api.nvim_create_autocmd("FileType", {
 			cmd = { "bash-language-server", "start" },
 		})
 	end,
+})
+
+require("lspconfig").ts_ls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	init_options = {
+		preferences = {
+			disableSuggestions = true,
+		},
+	},
+	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+	root_dir = require("lspconfig").util.root_pattern("package.json", "tsconfig.json", "jsconfig.json"),
+	single_file_support = true,
+	settings = {
+		typescript = {
+			jsx = {
+				enabled = true,
+			},
+			inlayHints = {
+				includeInlayParameterNameHints = "all",
+				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayVariableTypeHints = true,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayEnumMemberValueHints = true,
+			},
+		},
+	},
 })

@@ -1,7 +1,7 @@
 require("zen-mode").setup({
 	window = {
 		backdrop = 0.95,
-		width = 150, -- width of the Zen window
+		width = 180, -- width of the Zen window
 		height = 1, -- height of the Zen window
 		options = {
 			signcolumn = "no", -- disable signcolumn
@@ -28,7 +28,7 @@ require("zen-mode").setup({
 		tmux = { enabled = true }, -- disables the tmux statusline
 		wezterm = {
 			enabled = true,
-			font = "+40",
+			font = "+50",
 		},
 	},
 })
