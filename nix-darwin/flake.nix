@@ -13,9 +13,31 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager}:
   let
+
+    rPackagesOverlay = final: prev: {
+      r-environment = prev.rWrapper.override {
+        packages = with final.rPackages; [
+          tm
+          text2vec
+          caret
+          dplyr
+          arrow
+          data_table
+          tidyverse
+          text
+          glmnet
+          SnowballC
+          class
+          RPostgreSQL
+        ];
+      };
+    };
+
     configuration = { pkgs, config, ... }: {
 
       nixpkgs.config.allowUnfree = true;
+
+      nixpkgs.overlays = [ rPackagesOverlay ];
 
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
@@ -30,18 +52,46 @@
           fzf
           gnupg
           lazygit
+          k9s
+          minikube
           mkalias
           ripgrep
+          cloudflared
+
+          poetry
+
           alacritty
           obsidian
           spotify
 
+          postgresql
+          redis
+          ngrok
+
+          pngpaste
+          pandoc
+          (texlive.combine {
+             inherit (texlive) scheme-full;
+          })
+
+          templ
+          air
+          vhs
+          goreleaser
+          tailwindcss
+
           go
-          nodejs_22
+          nodejs_20
+          pnpm
           cargo
+          R
+          r-environment
 
           docker
           gh
+          btop
+          git-remote-codecommit
+          awscli2
         ];
 
       fonts.packages = [
@@ -96,7 +146,8 @@
         NSGlobalDomain.AppleInterfaceStyle = "Dark";
         NSGlobalDomain.KeyRepeat = 2;
 
-        universalaccess.reduceMotion = true;
+        # TODO: Fix this
+        # universalaccess.reduceMotion = true;
 
         trackpad.Clicking = true;
 
@@ -128,6 +179,7 @@
 
       services.skhd.enable = true;
       services.yabai.enable = true;
+      # TODO: Fix after latest unstable release fix for karabiner
       # services.karabiner-elements.enable = true;
 
       users.users.ojastyagi = {
@@ -138,13 +190,14 @@
       homebrew.enable = true;
 
       homebrew.casks = [
-        #HACK: Remove this after unstable release
         "karabiner-elements"
+        "vlc"
       ];
 
       homebrew.brews = [
         "wakatime-cli"
         "cowsay"
+        "jatt"
       ];
     };
   in
