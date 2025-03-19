@@ -1,6 +1,9 @@
 cowsay "Don't drink and sudo rm -rf /"
 echo ""
 
+# Obsidian vault
+alias odr="cd $HOME/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/Vault/"
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -11,6 +14,8 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="nvim"
 export VISUAL="nvim"
+
+export PATH="$HOME/bin:$PATH"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
