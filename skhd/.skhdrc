@@ -1,6 +1,9 @@
 # open iTerm2, VScode, and Firefox with shortcuts
 alt - return : open -a Alacritty --new
 
+# send screenshot to r2
+alt + cmd - s : ~/bin/r2up
+
 # focus window
 alt - h : yabai -m window --focus west
 alt - j : yabai -m window --focus south
