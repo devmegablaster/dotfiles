@@ -62,23 +62,16 @@ sh <(curl -L https://nixos.org/nix/install)
 3. **For macOS**:
 
 ```bash
-cd ~/dotfiles/nix
-./apps/aarch64-darwin/build-switch
+nix run ~/dotfiles/nix#build-switch
 ```
+
+> [!NOTE]
+> You need to give Full Disk Access to the Terminal you are using to run the script.
 
 This will:
 - Build the configuration
 - Switch to the new generation
 - Link all dotfiles to appropriate locations
-
-### Updating
-
-To update your system after making changes:
-
-```bash
-cd ~/dotfiles/nix
-./apps/aarch64-darwin/build-switch
-```
 
 ## 🧩 Structure
 

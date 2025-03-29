@@ -7,14 +7,15 @@ NC='\033[0m'
 
 SYSTEM_TYPE="aarch64-darwin"
 FLAKE_SYSTEM="darwinConfigurations.${SYSTEM_TYPE}.system"
+DOTFILES_PATH="$HOME/dotfiles"
 
 export NIXPKGS_ALLOW_UNFREE=1
 
 echo "${YELLOW}Starting build...${NC}"
-nix --extra-experimental-features 'nix-command flakes' build .#$FLAKE_SYSTEM $@ --impure
+nix --extra-experimental-features 'nix-command flakes' build ${DOTFILES_PATH}/nix#$FLAKE_SYSTEM $@ --impure
 
 echo "${YELLOW}Switching to new generation...${NC}"
-./result/sw/bin/darwin-rebuild switch --flake .#${SYSTEM_TYPE} $@ --impure
+./result/sw/bin/darwin-rebuild switch --flake ${DOTFILES_PATH}/nix#${SYSTEM_TYPE} $@ --impure
 
 echo "${YELLOW}Cleaning up...${NC}"
 unlink ./result
