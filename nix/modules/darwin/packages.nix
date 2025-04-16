@@ -6,4 +6,5 @@ shared-packages ++ [
   # Utils and Management
   yabai
   skhd
+  rar
 ]

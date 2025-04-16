@@ -38,6 +38,11 @@ with pkgs; [
   cowsay
   wakatime-cli
   nixpkgs-fmt
+  stripe-cli
+  python310
+  localstack
+  minio
+  minio-client
 
   # Utils and management
   btop
@@ -47,4 +52,7 @@ with pkgs; [
 
   # Entertainment
   spotify
+
+  # Misc
+  rclone
 ]

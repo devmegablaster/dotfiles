@@ -19,6 +19,13 @@ let user = "ojastyagi"; in {
     systemPackages = import ../../modules/darwin/packages.nix { inherit pkgs; };
   };
 
+
+  fonts = {
+    packages = [
+      pkgs.nerd-fonts.jetbrains-mono
+    ];
+  };
+
   services = {
     skhd = {
       enable = true;

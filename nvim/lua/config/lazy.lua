@@ -26,7 +26,6 @@ require("lazy").setup({
   "rcarriga/nvim-notify",
   "williamboman/mason.nvim",
   "folke/twilight.nvim",
-  -- "folke/which-key.nvim",
   { "wakatime/vim-wakatime", lazy = false },
   {
     "MeanderingProgrammer/render-markdown.nvim",
@@ -127,6 +126,7 @@ require("lazy").setup({
           lua = { "stylua" },
           markdown = { "prettier" },
           nix = { "nixpkgs-fmt" },
+          python = { "black" },
         },
         format_on_save = {
           lsp_fallback = true,
@@ -144,4 +144,76 @@ require("lazy").setup({
       end)
     end,
   },
+  {
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    version = false, -- Never set this value to "*"! Never!
+    opts = {
+      hints = {
+        enabled = false,
+      },
+      provider = "gemini",
+      gemini = {
+        endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
+        model = "gemini-2.0-flash",
+        timeout = 30000, -- Timeout in milliseconds
+        temperature = 0,
+        max_tokens = 8192,
+      },
+    },
+    build = "make",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "echasnovski/mini.pick",         -- for file_selector provider mini.pick
+      "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+      "hrsh7th/nvim-cmp",              -- autocompletion for avante commands and mentions
+      "ibhagwan/fzf-lua",              -- for file_selector provider fzf
+      "nvim-tree/nvim-web-devicons",   -- or echasnovski/mini.icons
+      {
+        -- support for image pasting
+        "HakonHarnes/img-clip.nvim",
+        event = "VeryLazy",
+        opts = {
+          -- recommended settings
+          default = {
+            embed_image_as_base64 = false,
+            prompt_for_file_name = false,
+            drag_and_drop = {
+              insert_mode = true,
+            },
+            -- required for Windows users
+            use_absolute_path = true,
+          },
+        },
+      },
+      {
+        -- Make sure to set this up properly if you have lazy=true
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {
+          file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+      },
+    },
+    {
+      "f-person/git-blame.nvim",
+      -- load the plugin at startup
+      event = "VeryLazy",
+      -- Because of the keys part, you will be lazy loading this plugin.
+      -- The plugin will only load once one of the keys is used.
+      -- If you want to load the plugin at startup, add something like event = "VeryLazy",
+      -- or lazy = false. One of both options will work.
+      opts = {
+        -- your configuration comes here
+        -- for example
+        enabled = true, -- if you want to enable the plugin
+        message_template = " <summary> • <date> • <author> • <<sha>>", -- template for the blame message, check the Message template section for more options
+        date_format = "%m-%d-%Y %H:%M:%S", -- template for the date, check Date format section for more options
+        virtual_text_column = 1, -- virtual text start column, check Start virtual text at column section for more options
+      },
+    }
+  }
 })

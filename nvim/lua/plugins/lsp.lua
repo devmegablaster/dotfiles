@@ -55,7 +55,7 @@ end
 require("mason").setup()
 
 -- NOTE: Install these servers
-local servers = { "clangd", "rust_analyzer", "pyright", "gopls", "templ", "ts_ls", "nil_ls" }
+local servers = { "clangd", "rust_analyzer", "pylsp", "gopls", "templ", "ts_ls", "nil_ls" }
 
 -- Ensure the servers above are installed
 require("mason-lspconfig").setup({

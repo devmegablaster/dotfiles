@@ -12,6 +12,7 @@ require("plugins.cmp")
 require("plugins.cmp")
 require("plugins.notify")
 require("plugins.fidget")
+require("plugins.avante")
 require("plugins.rendermd")
 -- vim.opt.fillchars = { eob = ' ' }
 

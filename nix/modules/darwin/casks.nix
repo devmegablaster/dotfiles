@@ -1,4 +1,7 @@
 _: [
+  # Dev
+  "charles"
+
   # Utils
   "appcleaner"
   "karabiner-elements"
