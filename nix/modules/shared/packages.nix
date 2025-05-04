@@ -43,6 +43,7 @@ with pkgs; [
   localstack
   minio
   minio-client
+  rustc
 
   # Utils and management
   btop

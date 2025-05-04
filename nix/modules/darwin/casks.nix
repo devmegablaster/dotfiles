@@ -1,6 +1,7 @@
 _: [
   # Dev
   "charles"
+  "tableplus"
 
   # Utils
   "appcleaner"
