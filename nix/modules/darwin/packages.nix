@@ -7,4 +7,6 @@ shared-packages ++ [
   yabai
   skhd
   rar
+  sketchybar
+  sketchybar-app-font
 ]

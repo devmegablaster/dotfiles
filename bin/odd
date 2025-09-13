@@ -1,0 +1,26 @@
+#!/bin/bash
+# Creates or opens today's daily note in Obsidian
+
+ICLOUD_DIR="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Vault"
+TODAY=$(date "+%Y-%m-%d")
+DAILY_DIR="$ICLOUD_DIR/Daily Notes"
+DAILY_FILE="$DAILY_DIR/$TODAY.md"
+
+# Create Daily Notes directory if it doesn't exist
+mkdir -p "$DAILY_DIR"
+
+# Create today's daily note if it doesn't exist
+if [ ! -f "$DAILY_FILE" ]; then
+    cat > "$DAILY_FILE" << EOF
+# $TODAY
+
+## Todo
+- [ ] 
+
+## Notes
+
+EOF
+fi
+
+# Open the daily note in nvim
+nvim "$DAILY_FILE"

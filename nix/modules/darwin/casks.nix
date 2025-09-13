@@ -2,6 +2,7 @@ _: [
   # Dev
   "charles"
   "tableplus"
+  "orbstack"
 
   # Utils
   "appcleaner"
@@ -17,4 +18,5 @@ _: [
   # Productivity
   "arc"
   "raycast"
+  "zen"
 ]

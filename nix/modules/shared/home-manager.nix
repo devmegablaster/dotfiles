@@ -2,7 +2,7 @@
 
 let
   name = "devmegablaster";
-  email = "ojas@megablaster.dev";
+  email = "devmegablaster@gmail.com";
 in
 {
 

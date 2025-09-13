@@ -13,6 +13,8 @@ alt - l : yabai -m window --focus east
 # switch focus between desktops
 alt - w : yabai -m display --focus north
 alt - s : yabai -m display --focus south
+alt - a : yabai -m display --focus west
+alt - d : yabai -m display --focus east
 
 # swap window
 shift + alt - left : yabai -m window --swap west
@@ -115,12 +117,6 @@ alt - y : yabai -m space --mirror y-axis
 
 # mirror tree x-axis
 alt - x : yabai -m space --mirror x-axis
-
-# toggle desktop offset
-alt - a : yabai -m space --toggle padding; yabai -m space --toggle gap
-
-# toggle window parent zoom
-alt - d : yabai -m window --toggle zoom-parent
 
 # toggle window fullscreen zoom
 alt - f : yabai -m window --toggle zoom-fullscreen

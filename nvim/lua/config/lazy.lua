@@ -26,6 +26,12 @@ require("lazy").setup({
   "rcarriga/nvim-notify",
   "williamboman/mason.nvim",
   "folke/twilight.nvim",
+  "sindrets/diffview.nvim",
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" }
+  },
   { "wakatime/vim-wakatime", lazy = false },
   {
     "MeanderingProgrammer/render-markdown.nvim",
@@ -214,6 +220,21 @@ require("lazy").setup({
         date_format = "%m-%d-%Y %H:%M:%S", -- template for the date, check Date format section for more options
         virtual_text_column = 1, -- virtual text start column, check Start virtual text at column section for more options
       },
-    }
+    },
+    {
+      "iamcco/markdown-preview.nvim",
+      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+      ft = { "markdown" },
+      build = function() vim.fn["mkdp#util#install"]() end,
+    },
+    {
+      "andythigpen/nvim-coverage",
+      version = "*",
+      config = function()
+        require("coverage").setup({
+          auto_reload = true,
+        })
+      end,
+    },
   }
 })

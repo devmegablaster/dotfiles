@@ -44,6 +44,7 @@ with pkgs; [
   minio
   minio-client
   rustc
+  pipenv
 
   # Utils and management
   btop
@@ -56,4 +57,5 @@ with pkgs; [
 
   # Misc
   rclone
+  claude-code
 ]

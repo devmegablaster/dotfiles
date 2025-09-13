@@ -1,7 +1,7 @@
 { config, pkgs, lib, home-manager, ... }:
 
 let
-  user = "ojastyagi";
+  user = "devmegablaster";
 in
 {
   users.users.${user} = {

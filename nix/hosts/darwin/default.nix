@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 
-let user = "ojastyagi"; in {
+let user = "devmegablaster"; in {
   imports = [
     ../../modules/shared
     ../../modules/darwin/home-manager.nix
@@ -34,9 +34,14 @@ let user = "ojastyagi"; in {
     yabai = {
       enable = true;
     };
+
+    sketchybar = {
+      enable = false;
+    };
   };
 
   system = {
+    primaryUser = "devmegablaster";
     stateVersion = 6;
 
     defaults = {

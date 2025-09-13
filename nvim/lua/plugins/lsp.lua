@@ -24,6 +24,7 @@ local on_attach = function(_, bufnr)
   -- nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
   -- nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
   nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+  nmap("gb", "<C-o>", "[G]o [B]ack")
   nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
   nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
   nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
@@ -55,12 +56,12 @@ end
 require("mason").setup()
 
 -- NOTE: Install these servers
-local servers = { "clangd", "rust_analyzer", "pylsp", "gopls", "templ", "ts_ls", "nil_ls" }
+local servers = { "clangd", "rust_analyzer", "pyright", "gopls", "templ", "ts_ls", "nil_ls" }
 
 -- Ensure the servers above are installed
-require("mason-lspconfig").setup({
-  ensure_installed = servers,
-})
+-- require("mason-lspconfig").setup({
+--   ensure_installed = servers,
+-- })
 
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -139,4 +140,12 @@ require("lspconfig").ts_ls.setup({
       },
     },
   },
+})
+
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
 })
