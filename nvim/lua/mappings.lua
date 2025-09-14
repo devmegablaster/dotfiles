@@ -1,5 +1,3 @@
-local harpoon = require("harpoon")
-
 vim.cmd("autocmd!")
 
 vim.cmd("highlight! HarpoonInactive guibg=NONE guifg=#63698c")
@@ -14,12 +12,6 @@ vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 -- switch between buffers
 vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>bp", ":bprev<CR>", { noremap = true, silent = true })
-
-harpoon:setup()
-
--- Harpoon
-vim.keymap.set("n", "<leader>mm", function() harpoon:list():add() end)
-vim.keymap.set("n", "<leader>h", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
 vim.scriptencoding = "utf-8"
 vim.opt.encoding = "utf-8"

@@ -20,18 +20,11 @@ vim.o.termguicolors = true
 require("lazy").setup({
   "github/copilot.vim",
   "onsails/lspkind.nvim",
-  "folke/zen-mode.nvim",
   "ray-x/go.nvim",
   "nvim-lualine/lualine.nvim",
   "rcarriga/nvim-notify",
   "williamboman/mason.nvim",
   "folke/twilight.nvim",
-  "sindrets/diffview.nvim",
-  {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" }
-  },
   { "wakatime/vim-wakatime", lazy = false },
   {
     "MeanderingProgrammer/render-markdown.nvim",
@@ -137,7 +130,7 @@ require("lazy").setup({
         format_on_save = {
           lsp_fallback = true,
           async = false,
-          timeout = 5000,
+          timeout = 10000,
         },
       })
 
@@ -150,60 +143,6 @@ require("lazy").setup({
       end)
     end,
   },
-  {
-    "yetone/avante.nvim",
-    event = "VeryLazy",
-    version = false, -- Never set this value to "*"! Never!
-    opts = {
-      hints = {
-        enabled = false,
-      },
-      provider = "gemini",
-      gemini = {
-        endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
-        model = "gemini-2.0-flash",
-        timeout = 30000, -- Timeout in milliseconds
-        temperature = 0,
-        max_tokens = 8192,
-      },
-    },
-    build = "make",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "stevearc/dressing.nvim",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      "echasnovski/mini.pick",         -- for file_selector provider mini.pick
-      "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-      "hrsh7th/nvim-cmp",              -- autocompletion for avante commands and mentions
-      "ibhagwan/fzf-lua",              -- for file_selector provider fzf
-      "nvim-tree/nvim-web-devicons",   -- or echasnovski/mini.icons
-      {
-        -- support for image pasting
-        "HakonHarnes/img-clip.nvim",
-        event = "VeryLazy",
-        opts = {
-          -- recommended settings
-          default = {
-            embed_image_as_base64 = false,
-            prompt_for_file_name = false,
-            drag_and_drop = {
-              insert_mode = true,
-            },
-            -- required for Windows users
-            use_absolute_path = true,
-          },
-        },
-      },
-      {
-        -- Make sure to set this up properly if you have lazy=true
-        'MeanderingProgrammer/render-markdown.nvim',
-        opts = {
-          file_types = { "markdown", "Avante" },
-        },
-        ft = { "markdown", "Avante" },
-      },
-    },
     {
       "f-person/git-blame.nvim",
       -- load the plugin at startup
@@ -222,12 +161,6 @@ require("lazy").setup({
       },
     },
     {
-      "iamcco/markdown-preview.nvim",
-      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-      ft = { "markdown" },
-      build = function() vim.fn["mkdp#util#install"]() end,
-    },
-    {
       "andythigpen/nvim-coverage",
       version = "*",
       config = function()
@@ -236,5 +169,4 @@ require("lazy").setup({
         })
       end,
     },
-  }
 })
