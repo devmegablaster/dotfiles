@@ -1,3 +1,7 @@
+general.import = [
+  "~/.config/alacritty/themes/night_owl.toml"
+]
+
 [colors]
 draw_bold_text_with_bright_colors = true
 
@@ -138,29 +142,10 @@ chars = "\u0002k"
 key = "k"
 mods = "Command|Alt"
 
-[colors.bright]
-black = "#727072"
-blue = "#FC9867"
-cyan = "#78DCE8"
-green = "#A9DC76"
-magenta = "#AB9DF2"
-red = "#FF6188"
-white = "#FCFCFA"
-yellow = "#FFD866"
-
-[colors.normal]
-black = "#403E41"
-blue = "#FC9867"
-cyan = "#78DCE8"
-green = "#A9DC76"
-magenta = "#AB9DF2"
-red = "#FF6188"
-white = "#FCFCFA"
-yellow = "#FFD866"
-
-[colors.primary]
-background = "#121212"
-foreground = "#FCFCFA"
+[[keyboard.bindings]]
+chars = "\u0002["
+key = "I"
+mods = "Command"
 
 [cursor.style]
 shape = "Beam"
@@ -173,34 +158,14 @@ TERM = "xterm-256color"
 ALACRITTY_DISABLE_WARNINGS = "1"
 
 [font]
-size = 15
+# JetBrainsMono = 15
+# Terminess = 18
+size = 18.5
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
-
-# [schemes.MonokaiPro.bright]
-# black = "#727072"
-# blue = "#FC9867"
-# cyan = "#78DCE8"
-# green = "#A9DC76"
-# magenta = "#AB9DF2"
-# red = "#FF6188"
-# white = "#FCFCFA"
-# yellow = "#FFD866"
-# 
-# [schemes.MonokaiPro.normal]
-# black = "#403E41"
-# blue = "#FC9867"
-# cyan = "#78DCE8"
-# green = "#A9DC76"
-# magenta = "#AB9DF2"
-# red = "#FF6188"
-# white = "#FCFCFA"
-# yellow = "#FFD866"
-# 
-# [schemes.MonokaiPro.primary]
-# background = "#121212"
-# foreground = "#FCFCFA"
+# JetBrainsMono Nerd Font
+# Terminess Nerd Font
+family = "Terminess Nerd Font"
 
 [scrolling]
 history = 10000
@@ -208,14 +173,15 @@ multiplier = 3
 
 [window]
 decorations = "buttonless"
-opacity = 0.82
+opacity = 0.78
+blur = true
 
 [window.class]
 general = "Alacritty"
 instance = "Alacritty"
 
 [window.padding]
-x = 7
-y = 7
+x = 5
+y = 5
 
 [keyboard]

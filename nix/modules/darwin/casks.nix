@@ -1,8 +1,9 @@
 _: [
   # Dev
-  "charles"
+  # "charles"
   "tableplus"
   "orbstack"
+  "requestly"
 
   # Utils
   "appcleaner"
@@ -10,13 +11,13 @@ _: [
   "stats"
 
   # Comms
-  "discord"
+  # "discord"
 
   # Entertainment
-  "vlc"
+  # "vlc"
 
   # Productivity
-  "arc"
+  # "arc"
   "raycast"
   "zen"
 ]

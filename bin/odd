@@ -1,26 +1,58 @@
 #!/bin/bash
-# Creates or opens today's daily note in Obsidian
+# Creates or opens this week's weekly note in Obsidian
 
 ICLOUD_DIR="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Vault"
 TODAY=$(date "+%Y-%m-%d")
-DAILY_DIR="$ICLOUD_DIR/Daily Notes"
-DAILY_FILE="$DAILY_DIR/$TODAY.md"
+TODAY_WEEKDAY=$(date "+%u")  # 1=Monday, 7=Sunday
 
-# Create Daily Notes directory if it doesn't exist
-mkdir -p "$DAILY_DIR"
+# Calculate Monday of current week
+DAYS_SINCE_MONDAY=$((TODAY_WEEKDAY - 1))
+MONDAY=$(date -v-${DAYS_SINCE_MONDAY}d "+%Y-%m-%d")
+SUNDAY=$(date -v+$((7 - TODAY_WEEKDAY))d "+%Y-%m-%d")
 
-# Create today's daily note if it doesn't exist
-if [ ! -f "$DAILY_FILE" ]; then
-    cat > "$DAILY_FILE" << EOF
-# $TODAY
+WEEKLY_DIR="$ICLOUD_DIR/Weekly Notes"
+WEEKLY_FILE="$WEEKLY_DIR/Week-$MONDAY-to-$SUNDAY.md"
 
-## Todo
-- [ ] 
+# Create Weekly Notes directory if it doesn't exist
+mkdir -p "$WEEKLY_DIR"
 
-## Notes
+# Create this week's note if it doesn't exist
+if [ ! -f "$WEEKLY_FILE" ]; then
+    cat > "$WEEKLY_FILE" << EOF
+# Week $MONDAY to $SUNDAY
+
+## Weekly Plan
+- [ ]
+- [ ]
+- [ ]
+
+---
+
+## Monday $MONDAY
+### Todo
+- [ ]
+
+### Notes
 
 EOF
 fi
 
-# Open the daily note in nvim
-nvim "$DAILY_FILE"
+# Check if today's section already exists
+TODAY_SECTION="## $(date "+%A %Y-%m-%d")"
+if ! grep -q "$TODAY_SECTION" "$WEEKLY_FILE"; then
+    # Add today's section to the file
+    cat >> "$WEEKLY_FILE" << EOF
+
+---
+
+$TODAY_SECTION
+### Todo
+- [ ]
+
+### Notes
+
+EOF
+fi
+
+# Open the weekly note in nvim
+nvim "$WEEKLY_FILE"

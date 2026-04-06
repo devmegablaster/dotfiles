@@ -23,6 +23,7 @@ let user = "devmegablaster"; in {
   fonts = {
     packages = [
       pkgs.nerd-fonts.jetbrains-mono
+      pkgs.nerd-fonts.terminess-ttf
     ];
   };
 
@@ -50,7 +51,7 @@ let user = "devmegablaster"; in {
         persistent-apps = [
           "${pkgs.alacritty}/Applications/Alacritty.app"
           "${pkgs.obsidian}/Applications/Obsidian.app"
-          "/Applications/Arc.app"
+          "/Applications/Zen.app"
           "/System/Applications/Calendar.app"
         ];
         tilesize = 60;

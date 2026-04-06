@@ -22,7 +22,6 @@ require("lazy").setup({
   "onsails/lspkind.nvim",
   "ray-x/go.nvim",
   "nvim-lualine/lualine.nvim",
-  "rcarriga/nvim-notify",
   "williamboman/mason.nvim",
   "folke/twilight.nvim",
   { "wakatime/vim-wakatime", lazy = false },
@@ -112,14 +111,35 @@ require("lazy").setup({
     },
     dependencies = {
       "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
     },
   },
   {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-      require("conform").setup({
+      local conform = require("conform")
+
+      -- Custom black formatter that uses pipenv if Pipfile exists
+      conform.formatters.black = {
+        command = function()
+          -- Check if we're in a pipenv project
+          local pipfile = vim.fn.findfile("Pipfile", ".;")
+          if pipfile ~= "" then
+            return "pipenv"
+          end
+          return "black"
+        end,
+        args = function()
+          local pipfile = vim.fn.findfile("Pipfile", ".;")
+          if pipfile ~= "" then
+            return { "run", "black", "--quiet", "-" }
+          end
+          return { "--quiet", "-" }
+        end,
+        stdin = true,
+      }
+
+      conform.setup({
         formatters_by_ft = {
           go = { "gofmt" },
           lua = { "stylua" },
@@ -143,30 +163,144 @@ require("lazy").setup({
       end)
     end,
   },
-    {
-      "f-person/git-blame.nvim",
-      -- load the plugin at startup
-      event = "VeryLazy",
-      -- Because of the keys part, you will be lazy loading this plugin.
-      -- The plugin will only load once one of the keys is used.
-      -- If you want to load the plugin at startup, add something like event = "VeryLazy",
-      -- or lazy = false. One of both options will work.
-      opts = {
-        -- your configuration comes here
-        -- for example
-        enabled = true, -- if you want to enable the plugin
-        message_template = " <summary> • <date> • <author> • <<sha>>", -- template for the blame message, check the Message template section for more options
-        date_format = "%m-%d-%Y %H:%M:%S", -- template for the date, check Date format section for more options
-        virtual_text_column = 1, -- virtual text start column, check Start virtual text at column section for more options
+  {
+    "f-person/git-blame.nvim",
+    -- load the plugin at startup
+    event = "VeryLazy",
+    -- Because of the keys part, you will be lazy loading this plugin.
+    -- The plugin will only load once one of the keys is used.
+    -- If you want to load the plugin at startup, add something like event = "VeryLazy",
+    -- or lazy = false. One of both options will work.
+    opts = {
+      -- your configuration comes here
+      -- for example
+      enabled = true, -- if you want to enable the plugin
+      message_template = " <summary> • <date> • <author> • <<sha>>", -- template for the blame message, check the Message template section for more options
+      date_format = "%m-%d-%Y %H:%M:%S", -- template for the date, check Date format section for more options
+      virtual_text_column = 1, -- virtual text start column, check Start virtual text at column section for more options
+    },
+  },
+  {
+    "andythigpen/nvim-coverage",
+    version = "*",
+    config = function()
+      require("coverage").setup({
+        auto_reload = true,
+      })
+    end,
+  },
+  {
+    "kawre/leetcode.nvim",
+    dependencies = {
+      -- include a picker of your choice, see picker section for more details
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+    },
+    opts = {
+      -- configuration goes here
+    },
+  },
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {
+      bigfile = { enabled = true },
+      dashboard = {
+        enabled = true,
+        width = 60,
+        pane_gap = 16,
+        sections = {
+          {
+            pane = 1,
+            padding = 5,
+            align = 'center',
+            {
+              enabled = function() return vim.o.lines > 40 end,
+              section = 'terminal',
+              cmd =
+              'ascii-image-converter --color -H30 -c "$HOME/.config/nvim/data/dash.gif"',
+              height = 30,
+              padding = 2,
+              align = 'center',
+            },
+            {
+              enabled = function() return not (vim.o.lines > 40) and vim.o.columns > 70 end,
+              section = 'terminal',
+              cmd =
+              'ascii-image-converter --color -H24 -c "$HOME/.config/nvim/data/dash.gif"',
+              height = 24,
+              padding = 2,
+              indent = 13,
+              align = 'center',
+            },
+            {
+              enabled = function() return not (vim.o.columns > 140) and vim.o.lines > 40 end,
+              section = 'keys',
+              padding = 2,
+              align = 'left',
+              gap = 1
+            },
+            {
+              enabled = function() return not (vim.o.columns > 140) and vim.o.lines > 40 end,
+              icon = ' ',
+              title = 'Recent Files',
+            },
+            {
+              enabled = function() return not (vim.o.columns > 140) and vim.o.lines > 40 end,
+              section = 'recent_files',
+              opts = { limit = 5 },
+              align = 'left',
+              padding = 2,
+            },
+            {
+              enabled = function() return not (vim.o.columns > 140) and vim.o.lines > 40 end,
+              section = 'startup',
+              padding = 2,
+            },
+          },
+          {
+            pane = 2,
+            padding = 5,
+            align = 'center',
+            {
+              enabled = function() return vim.o.columns > 140 or not (vim.o.lines > 40) end,
+              section = 'keys',
+              padding = 2,
+              align = 'left',
+              gap = 1,
+            },
+            {
+              enabled = function() return vim.o.columns > 140 or not (vim.o.lines > 40) end,
+              icon = ' ',
+              title = 'Recent Files',
+            },
+            {
+              enabled = function() return vim.o.columns > 140 or not (vim.o.lines > 40) end,
+              section = 'recent_files',
+              opts = { limit = 5 },
+              align = 'left',
+              padding = 2,
+            },
+            {
+              enabled = function() return vim.o.columns > 140 or not (vim.o.lines > 40) end,
+              section = 'startup',
+              padding = 2,
+            },
+          },
+        },
       },
+      explorer = { enabled = false },
+      indent = { enabled = true, scope = { enabled = false } },
+      input = { enabled = false },
+      picker = { enabled = false },
+      notifier = { enabled = true },
+      quickfile = { enabled = false },
+      scope = { enabled = false },
+      scroll = { enabled = false },
+      statuscolumn = { enabled = true },
+      words = { enabled = false },
+      lazygit = { enabled = true },
     },
-    {
-      "andythigpen/nvim-coverage",
-      version = "*",
-      config = function()
-        require("coverage").setup({
-          auto_reload = true,
-        })
-      end,
-    },
+  }
 })

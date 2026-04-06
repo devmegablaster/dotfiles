@@ -5,7 +5,7 @@ echo ""
 alias odr="cd $HOME/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/Vault/"
 
 # Local claude
-alias claude="/Users/devmegablaster/.claude/local/claude"
+# alias claude="/Users/devmegablaster/.claude/local/claude"
 
 alias wizwarm="wiz s bulb 11"
 alias wizcool="wiz s bulb 13"
@@ -42,3 +42,6 @@ source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Claude Code
+export PATH="$HOME/.local/bin:$PATH"

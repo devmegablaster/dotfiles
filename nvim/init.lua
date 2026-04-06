@@ -8,7 +8,6 @@ require("plugins.lualine")
 require("plugins.codesnap")
 require("plugins.obsidian")
 require("plugins.cmp")
-require("plugins.notify")
 require("plugins.fidget")
 require("plugins.rendermd")
 -- vim.opt.fillchars = { eob = ' ' }

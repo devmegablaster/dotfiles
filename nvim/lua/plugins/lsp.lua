@@ -113,6 +113,20 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+require("lspconfig").rust_analyzer.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "rust" },
+  root_dir = require("lspconfig").util.root_pattern("Cargo.toml"),
+  settings = {
+    ["rust-analyzer"] = {
+      cargo = {
+        allFeatures = true,
+      }
+    }
+  }
+})
+
 require("lspconfig").ts_ls.setup({
   on_attach = on_attach,
   capabilities = capabilities,

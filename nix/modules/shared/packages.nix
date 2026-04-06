@@ -32,7 +32,7 @@ with pkgs; [
   git-remote-codecommit
   awscli2
   kcat
-  postman
+  # postman
   fzf
   gnupg
   cowsay
@@ -43,8 +43,9 @@ with pkgs; [
   localstack
   minio
   minio-client
-  rustc
+  rustup
   pipenv
+  just
 
   # Utils and management
   btop
@@ -54,8 +55,10 @@ with pkgs; [
 
   # Entertainment
   spotify
+  spotifyd
 
   # Misc
   rclone
-  claude-code
+  ascii-image-converter
+  # claude-code
 ]

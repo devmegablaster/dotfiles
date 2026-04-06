@@ -1,3 +1,5 @@
+local snacks = require("snacks")
+
 vim.cmd("autocmd!")
 
 vim.cmd("highlight! HarpoonInactive guibg=NONE guifg=#63698c")
@@ -12,6 +14,21 @@ vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 -- switch between buffers
 vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>bp", ":bprev<CR>", { noremap = true, silent = true })
+
+-- window/split navigation (works in both normal and insert mode)
+vim.keymap.set({"n", "i"}, "<C-h>", "<C-\\><C-N><C-w>h", { noremap = true, silent = true, desc = "Move to left split" })
+vim.keymap.set({"n", "i"}, "<C-j>", "<C-\\><C-N><C-w>j", { noremap = true, silent = true, desc = "Move to bottom split" })
+vim.keymap.set({"n", "i"}, "<C-k>", "<C-\\><C-N><C-w>k", { noremap = true, silent = true, desc = "Move to top split" })
+vim.keymap.set({"n", "i"}, "<C-l>", "<C-\\><C-N><C-w>l", { noremap = true, silent = true, desc = "Move to right split" })
+
+-- split creation/management
+vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", { noremap = true, silent = true, desc = "Vertical split" })
+vim.keymap.set("n", "<leader>sh", ":split<CR>", { noremap = true, silent = true, desc = "Horizontal split" })
+vim.keymap.set("n", "<leader>sc", ":close<CR>", { noremap = true, silent = true, desc = "Close current split" })
+vim.keymap.set("n", "<leader>so", ":only<CR>", { noremap = true, silent = true, desc = "Close all other splits" })
+
+-- Snacks
+vim.keymap.set("n", "<leader>lg", function() snacks.lazygit() end, { noremap = true })
 
 vim.scriptencoding = "utf-8"
 vim.opt.encoding = "utf-8"
